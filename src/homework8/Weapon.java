@@ -2,23 +2,23 @@ package homework8;
 
 public class Weapon
 {
-	private double Damage;
-	private double AttackSpeed;
-	private double MissChance;
+	private double damage;
+	private double attackSpeed;
+	private double missChance;
 
 	public Weapon(double NewDamage, double NewAttackSpeed, double NewMissChance)
 	{
-		Damage = NewDamage;
-		AttackSpeed = NewAttackSpeed;
-		MissChance = NewMissChance;
+		this.damage = NewDamage;
+		this.attackSpeed = NewAttackSpeed;
+		this.missChance = NewMissChance;
 	}
 
 	@Override
 	public int hashCode()
 	{
-		int hash1 = new Double(this.Damage).hashCode();
-		int hash2 = new Double(this.AttackSpeed).hashCode();
-		int hash3 = new Double(this.MissChance).hashCode();
+		int hash1 = new Double(this.damage).hashCode();
+		int hash2 = new Double(this.attackSpeed).hashCode();
+		int hash3 = new Double(this.missChance).hashCode();
 		final int HASH_MULTIPLIER = 71;
 		int hash = HASH_MULTIPLIER * hash1 + hash2;
 		return HASH_MULTIPLIER * hash + hash3;
@@ -30,8 +30,8 @@ public class Weapon
 		if (other instanceof Weapon)
 		{
 			Weapon temp = (Weapon) other;
-			return (this.AttackSpeed == temp.AttackSpeed && this.Damage == temp.Damage 
-					&& this.MissChance == temp.MissChance);
+			return (this.attackSpeed == temp.attackSpeed && this.damage == temp.damage 
+					&& this.missChance == temp.missChance);
 		}
 		return false;
 	}

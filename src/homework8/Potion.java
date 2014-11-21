@@ -2,20 +2,20 @@ package homework8;
 
 public class Potion
 {
-	private double Size;
-	private int Type; // 0, 1, 2, 3 ... etc. A flag value.
+	private double size;
+	private int type; // 0, 1, 2, 3 ... etc. A flag value.
 
 	public Potion(double NewSize, int NewType)
 	{
-		Size = NewSize;
-		Type = NewType;
+		this.size = NewSize;
+		this.type = NewType;
 	}
 	
 	@Override
 	public int hashCode()
 	{
-		int hash1 = new Double(this.Size).hashCode();
-		int hash2 = this.Type;
+		int hash1 = new Double(this.size).hashCode();
+		int hash2 = this.type;
 		final int HASH_MULTIPLIER = 47;
 		return HASH_MULTIPLIER * hash1 * hash2;
 	}
@@ -26,7 +26,7 @@ public class Potion
 		if (other instanceof Potion)
 		{
 			Potion temp = (Potion) other;
-			return (this.Size == temp.Size && this.Type == temp.Type);
+			return (this.size == temp.size && this.type == temp.type);
 		}
 		return false;
 	}
