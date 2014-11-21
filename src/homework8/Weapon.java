@@ -6,11 +6,11 @@ public class Weapon
 	private double attackSpeed;
 	private double missChance;
 
-	public Weapon(double NewDamage, double NewAttackSpeed, double NewMissChance)
+	public Weapon(double newDamage, double newAttackSpeed, double newMissChance)
 	{
-		this.damage = NewDamage;
-		this.attackSpeed = NewAttackSpeed;
-		this.missChance = NewMissChance;
+		this.damage = newDamage;
+		this.attackSpeed = newAttackSpeed;
+		this.missChance = newMissChance;
 	}
 
 	@Override

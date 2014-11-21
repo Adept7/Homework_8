@@ -12,13 +12,15 @@ package homework8;
 public class HashSet_Methods
 {
 	/**
-	 * Add an item to the hash table. data is the hash table. NewData is the Object to add to the table.
+	 * Add an item to the hash table.
 	 * @param newData the object to add to the table
 	 * @param data the hash table
 	 */
 	public static void add(Object newData, Node[] data)
 	{
-		
+		int hashIndex = Math.abs(newData.hashCode()) % data.length;
+		Node temp = new Node(newData, data[hashIndex]);
+		data[hashIndex] = temp;
 	}
 
 	/**
@@ -29,7 +31,15 @@ public class HashSet_Methods
 	 */
 	public static int contains(Object searchData, Node[] data)
 	{
-		
+		int hashIndex = Math.abs(searchData.hashCode()) % data.length;
+
+		Node current = data[hashIndex];
+		while (current != null)
+		{
+			if (searchData.equals(current.data)) { return hashIndex; }
+			current = current.next;
+		}
+		return -1;
 	}
 
 	/**
@@ -39,7 +49,23 @@ public class HashSet_Methods
 	 */
 	public static void remove(Object removeData, Node[] data)
 	{
-		
+		int hashIndex = Math.abs(removeData.hashCode()) % data.length;
+
+		Node current = data[hashIndex];
+		Node previous = null;
+		while (current != null)
+		{
+			if (removeData.equals(current.data) && previous == null)
+			{
+				data[hashIndex] = current.next;
+			}
+			else if (removeData.equals(current.data))
+			{
+				previous.next = current.next;
+			}
+			previous = current;
+			current = current.next;
+		}
 	}
 
 	/**
@@ -51,7 +77,17 @@ public class HashSet_Methods
 	 */
 	public static double calculateLoad(Node[] data)
 	{
-		
+		int size = 0;
+		for (Node current : data)
+		{
+			Node temp = current;
+			while (temp != null)
+			{
+				size++;
+				temp = temp.next;
+			}
+		}
+		return  (size * 1.0) / data.length;
 	}
 
 	/**
@@ -61,6 +97,16 @@ public class HashSet_Methods
 	 */
 	public static Node[] resize(Node[] data)
 	{
-		
+		Node[] newTable = new Node[data.length * 2];
+		for (Node current : data)
+		{
+			Node temp = current;
+			while (temp != null)
+			{
+				HashSet_Methods.add(temp.data, newTable);
+				temp = temp.next;
+			}
+		}
+		return newTable;
 	}
 }

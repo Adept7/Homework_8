@@ -5,9 +5,9 @@ public class Node
 	public Object data;
 	public Node next;
 
-	public Node(Object NewData, Node NewNext)
+	public Node(Object newData, Node newNext)
 	{
-		this.data = NewData;
-		this.next = NewNext;
+		this.data = newData;
+		this.next = newNext;
 	}
 }

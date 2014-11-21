@@ -5,10 +5,10 @@ public class Potion
 	private double size;
 	private int type; // 0, 1, 2, 3 ... etc. A flag value.
 
-	public Potion(double NewSize, int NewType)
+	public Potion(double newSize, int newType)
 	{
-		this.size = NewSize;
-		this.type = NewType;
+		this.size = newSize;
+		this.type = newType;
 	}
 	
 	@Override
