@@ -10,14 +10,24 @@ public class Potion
 		Size = NewSize;
 		Type = NewType;
 	}
-
-	/*
-	 * YOUR CODE HERE
-	 * Override the hashCode method.
-	 */
-
-	/*
-	 * YOUR CODE HERE
-	 * Override the equals method.
-	 */
+	
+	@Override
+	public int hashCode()
+	{
+		int hash1 = new Double(this.Size).hashCode();
+		int hash2 = this.Type;
+		final int HASH_MULTIPLIER = 47;
+		return HASH_MULTIPLIER * hash1 * hash2;
+	}
+	
+	@Override
+	public boolean equals(Object other)
+	{
+		if (other instanceof Potion)
+		{
+			Potion temp = (Potion) other;
+			return (this.Size == temp.Size && this.Type == temp.Type);
+		}
+		return false;
+	}
 }
